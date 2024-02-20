@@ -14,7 +14,7 @@ public with sharing class CarController {
     public static List<Car__c> getCars(Filters filters){
         String key, whereClause ='';
         Decimal maxPrice;
-        String[] categories, makeType, criteria = new List<String>{};
+        String[] categories, makeType, criteria = new List<String>();
         if(filters !=null){
             maxPrice = filters.maxPrice;
             categories = filters.categories;
