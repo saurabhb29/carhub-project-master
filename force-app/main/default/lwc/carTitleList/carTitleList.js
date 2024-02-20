@@ -1,9 +1,11 @@
 import { LightningElement, wire } from 'lwc';
 import getCars from  '@salesforce/apex/CarController.getCars';
 export default class CarTitleList extends LightningElement {
+
     cars
     error
-    @wire(getCars)
+    filters={};
+    @wire(getCars, {filters:'$filters'})
     carsHandler({data,error}){
         if(data){
             console.log(data);

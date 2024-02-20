@@ -6,3 +6,6 @@ c-car-title{
     display: flex;
     flex-wrap: wrap;
 }
+.wrapper{
+    background-color: #e3e5e4;
+}
