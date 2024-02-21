@@ -1,17 +1,46 @@
 <template>
     <lightning-card title={carName} icon-name="standard:apex_plugin">
+        <!-- The <lightning-card> component represents a styled container with a header and body. 
+             It is used to display information in a card-like format. -->
+        
         <div class="slds-var-m-horizontal_medium">
+            <!-- This <div> element has a CSS class applied for horizontal margin. -->
+            
             <img src={carPictureUrl} alt="Car Picture"/>
+            <!-- An <img> element to display the picture of the car. The source URL is bound to the carPictureUrl variable. -->
+            
             <lightning-record-view-form onload={handleRecordLoaded} record-id={recordId} object-api-name="Car__c" density="compact">
+                <!-- 
+                The <lightning-record-view-form> component is used to display a form for viewing a record.
+                - onload event is used to specify a function (handleRecordLoaded) to be called when the form is loaded.
+                - record-id attribute is used to specify the ID of the record to be displayed.
+                - object-api-name attribute is used to specify the API name of the object (Car__c in this case) whose record is to be displayed.
+                - density attribute is used to specify the density of the components within the form (compact in this case).
+                -->
+                
                 <lightning-output-field field-name={categoryField}></lightning-output-field>
+                <!-- A <lightning-output-field> component is used to display the value of a field from the loaded record. 
+                     The field-name attribute specifies the API name of the field to be displayed (bound to categoryField). -->
+                
                 <lightning-output-field field-name={makeField}></lightning-output-field>
+                <!-- Similar to above, this displays the value of another field (bound to makeField). -->
+                
                 <lightning-output-field field-name={msrpField}></lightning-output-field>
+                <!-- This displays the Manufacturer's Suggested Retail Price (MSRP) field value (bound to msrpField). -->
+                
                 <section>Other Features</section>
+                <!-- A <section> element for grouping related content. -->
+                
                 <lightning-output-field field-name={fuelField}></lightning-output-field>
+                <!-- This displays the fuel type field value (bound to fuelField). -->
+                
                 <lightning-output-field field-name={seatField}></lightning-output-field>
+                <!-- This displays the number of seats field value (bound to seatField). -->
+                
                 <lightning-output-field field-name={controlField}></lightning-output-field>
+                <!-- This displays the control type field value (bound to controlField). -->
+                
             </lightning-record-view-form>
         </div>
     </lightning-card>
-    
 </template>

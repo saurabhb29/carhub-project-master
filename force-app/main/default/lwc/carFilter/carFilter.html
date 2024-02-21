@@ -1,17 +1,27 @@
 <template>
+    <!-- This is a Lightning web component template -->
     <lightning-card title="Filters" icon-name="standard:calibration">
+        <!-- This is a Lightning card component with a title "Filters" and an icon -->
         <div class="slds-m-horizontal_medium">
+            <!-- This div adds margin horizontally -->
             <lightning-input label="Search key" type="search" value={filters.searchKey} onchange={handleSearchKeyChange}>   
             </lightning-input>
+            <!-- This is a Lightning input field for searching with label "Search key" -->
 
             <section class="slider_section">
+                <!-- This section contains a slider for selecting maximum price -->
                 <lightning-slider label="Max-Price" step="100" min="0" max="999999" value={filters.maxPrice} onchange={handleMaxPriceChange}>
                 </lightning-slider>
             </section>
+
             <section>
+                <!-- This section is for selecting categories -->
                 <h2>Category</h2>
+                <!-- Heading for category selection -->
                 <template if:true={categories.data}>
+                    <!-- Check if category data exists -->
                     <template for:each={categories.data.values} for:item="category">
+                        <!-- Iterate over categories data -->
                         <lightning-input 
                         key={category.value}
                         label={category.label} 
@@ -20,18 +30,23 @@
                         data-name="category"
                         data-value={category.value}
                         onchange={handleCheckbox}></lightning-input>
+                        <!-- Lightning input checkbox for each category -->
                     </template>
-                    
                 </template>
                 <template if:true={categories.error}>
+                    <!-- Display error if category data is not available -->
                     <div>{categoryError}</div>
                 </template>
-                
             </section>
+            
             <section>
+                <!-- This section is for selecting make types -->
                 <h2>Make</h2>
+                <!-- Heading for make selection -->
                 <template if:true={makeType.data}>
+                    <!-- Check if makeType data exists -->
                     <template for:each={makeType.data.values} for:item="make">
+                        <!-- Iterate over makeType data -->
                         <lightning-input 
                         key={make.value}
                         label={make.label} 
@@ -40,15 +55,14 @@
                         data-name="makeType"
                         data-value={make.value}
                         onchange={handleCheckbox}></lightning-input>
+                        <!-- Lightning input checkbox for each make type -->
                     </template>
-                    
                 </template>
                 <template if:true={makeType.error}>
+                     <!-- Display error if makeType data is not available -->
                      <div>{makeError}</div>
                 </template>
-               
             </section>
         </div>
     </lightning-card>
-    
 </template>
